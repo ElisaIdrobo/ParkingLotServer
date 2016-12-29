@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <!--
+Copyright (c) 2015 by Nika Zawila (http://codepen.io/nikazawila/pen/hmyrz)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+  <title>Node Statistics</title>
+
+  <link rel="stylesheet" href="/assets/reset/reset.css">
+
+  <style>
+  @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+/* --------------------CSS----------------- */
+
+body {
+	background: #222;
+	font: 16px 'Open Sans', sans-serif;
+}
+
+.box {
+	background: linear-gradient(#526494, #604484);
+	margin: 15px auto 0;
+	border-radius: 5px;
+	width: 300px;
+}
+
+.box__header {
+	padding: 15px 25px;
+	position: relative;
+}
+
+.box__header-title {
+	color: #fff;
+	font-size: 18px;
+}
+
+.box__body {
+	padding: 0 25px;
+}
+
+/* STATS */
+
+.stats {
+	color: #fff;
+	position: relative;
+	padding-bottom: 25px;
+}
+
+.stats__amount {
+	font-size: 42px;
+	font-weight: bold;
+	line-height: 1.2;
+}
+
+.stats__caption {
+	font-size: 18px;
+
+}
+
+.stats__change {
+	position: absolute;
+	top: 10px;
+	right: 0;
+	text-align: right;
+	color: #B1B7C8;
+}
+
+.stats__value {
+	font-size: 18px;
+}
+
+.stats__period {
+	font-size: 14px;
+}
+
+.stats__value--positive {
+	color: #AEDC6F;
+}
+
+.stats__value--negative {
+	color: #FB5055;
+}
+
+.stats--main .stats__amount {
+	font-size: 54px;
+}
+  </style>
+
+  <script>
+    window.console = window.console || function(t) {};
+    window.open = function(){ console.log('window.open is disabled.'); };
+    window.print = function(){ console.log('window.print is disabled.'); };
+    // Support hover state for mobile.
+    if (false) {
+      window.ontouchstart = function(){};
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <div class="box">
+  <div class="box__header">
+    <h3 class="box__header-title">stats</h3>
+  </div>
+  <div class="box__body">
+    <div class="stats stats--main">
+      <div class="stats__amount"><%= subSubscribers %></div>
+      <div class="stats__caption">subscribers</div>
+      <div class="stats__change">
+        <div class="stats__value stats__value--positive"><%= subPercent %>%</div>
+        <div class="stats__period">this week</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stats__amount"><%= subVisitors %></div>
+      <div class="stats__caption">visitors</div>
+      <div class="stats__change">
+        <div class="stats__value stats__value--negative"><%= visitorPercent %>%</div>
+        <div class="stats__period">this week</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stats__amount"><%= subComments %></div>
+      <div class="stats__caption">comments</div>
+      <div class="stats__change">
+        <div class="stats__value">+<%= commentPercent %></div>
+        <div class="stats__period">this week</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stats__amount"><%= subPosts %></div>
+      <div class="stats__caption">posts</div>
+      <div class="stats__change">
+        <div class="stats__value">+<%= postPercent %></div>
+        <div class="stats__period">this week</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage('resize', "*");
+    }
+  </script>
+
+</body>
+
+</html>
+
