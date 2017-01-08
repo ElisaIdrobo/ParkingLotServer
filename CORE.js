@@ -6,14 +6,14 @@ server.set('view engine', 'ejs');
 server.set('views', __dirname+'/html');
 
 var bodyParser = require('body-parser');
-server.use(bodyParser.json());
+var jsonParser = bodyParser.json();
 
-
-server.post('/car', function(req,res){
+server.post('/car',jsonParser, function(req,res){
     var id = req.body.id;
     var data = req.body.data;
     var timestamp = req.body.timestamp;
     console.log(req.body);
+    console.log(id + ", "+ data + ", " + timestamp);
     return res.sendStatus(200);
 });
 
