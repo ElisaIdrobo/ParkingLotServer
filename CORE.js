@@ -6,7 +6,7 @@ server.set('view engine', 'ejs');
 server.set('views', __dirname+'/html');
 
 var bodyParser = require('body-parser');
-server.use(bodyParser.urlencoded({extended: false}));
+server.use(bodyParser.json());
 
 
 server.post('/car', function(req,res){
