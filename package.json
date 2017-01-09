@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "NodeDemos",
   "main": "CORE.js",
-  "dependencies": 
-  {
-    "express": "4.12.3",
+  "dependencies": {
     "body-parser": "1.12.2",
     "ejs": "2.3.1",
-    "ytdl-core": "0.5.1"   
+    "express": "4.12.3",
+    "pg": "6.1.2",
+    "ytdl-core": "0.5.1"
   },
   "devDependencies": {},
-  "scripts": { "test": "echo \"Error: no test specified\" && exit 1" },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "Server Developer",
   "license": "ISC"
 }
